@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Podcasts';
+const description = 'Amazing Podcast Episodes';
+const permalink = `${Astro.site.href}podcasts`;
+---
+<BaseLayout title={title} description={description} permalink={permalink} current="podcasts">
+    <div class="'container">
+      <h2>Read</h2>
+      <ul>
+        <li>Atlas Shrugged</li>
+        <p>This shattered my world, transforming perspectives</p>
+        <li> Writers and Lovers</li>
+        <li>The innovators</li>
+      </ul>
+      <h2>Current Readings</h2>
+      <ul>
+          <li>The Old man and the Sea</li>
+          <li>Nueral network verification</li>
+          <li>Deep Learning Ian Goodfellow</li>
+      </ul>
+    </div>
+   
+  </BaseLayout>
+  <style>
+    .container p{
+        margin: -1em;
+        margin-left: 1em;
+    }
+  </style>

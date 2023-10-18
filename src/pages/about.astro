@@ -8,40 +8,58 @@ const permalink = `${Astro.site.href}about`;
 
 <BaseLayout title={title} description={description} permalink={permalink} current="about">
   <div class="container">
-    <h1>About</h1>
     <figure class="about-image">
-      <img src="/assets/my_photo_1.jpg" alt="Illustration of a notebook" width="330">
-      <figcaption>
-        Me after watching Oppenheimer.
-      </figcaption>
+      <img src="/assets/my_photo_1.jpg" alt="Illustration of a notebook" width="300">
     </figure>
-    <p>I'm Kushal an Aerospace Engineer at IITBombay '24</p>
-    <p>In my third year I've gotten really interesting in Deep Learning and it's workings, also the big picture effects it could have</p>
-    <p>I have done many side projects, fine-tuning, and Text Generation. Currently, I am studying Reinforcement Learning to learn how to make great AI agents.</p>
-    <p>Looking for a exciting place to work hard at, ideally an ambitious start up.</p>
+    <div class="about-text">
+    <p>I’m Kushal, I currently live in Mumbai. Studying Aerospace Engineering at IITBombay (’20 to ‘24).</p>
+    <b>Interests</b>
+    <p>How far a group of driven people can go. The wealth creation that startups enable. Putting myself in a place that leads to compound effects.</p>
+    <p>Instances where a small group of great people do incredible things, that’s why I badly wanna move to silicon valley(don’t know how thinking about this makes me anxious). Please message me if you’ve thoughts on this or you can help me with this.</p>
+    <p>Currently I am a deep learning practitioner along with my Aerospace Course work. If you wanna know why I decided to work on software, AI instead of moving forward in Aerospace industry read..</p>
+    <p>Some curated lists, I try to revist them time and again <a href="/books">Books</a>, <a href="/podcasts">Podcasts</a>, <a href="/essays">Essays/Articles</a></p>
+    <hr>
+    <p>The reason I created this web is to meet amazing ambitious like minded people. I hope this page serves as a gateway into me, that removes strange from the stranger (As Brian Chesky says it.)</p>
+
+    </div>
   </div>
 </BaseLayout>
 
 <style>
+  .content {
+    flex: 1; /* Text occupies 50% of the width */
+    min-width: 75%; /* Set a minimum width to ensure text content doesn't shrink too much */
+  }
+
+  .about-text {
+    margin-left: -10em;
+    min-width: 600px; /* Ensure text has a minimum width */
+  }
+
   .about-image {
+    margin-right: -18em;
+    margin-left: 0.5em;
     float: right;
-    margin: -3em -7em 2em 2em;
-    max-width: 300px;
+    max-width: 50%; /* Image occupies 25% of the width */
+    text-align: center; /* Center the image within its container */
   }
 
   .about-image img {
     border-radius: 8px;
-    margin-bottom: 1.5em;
   }
 
-  .about-image figcaption{
+  .about-image figcaption {
     font-size: small;
   }
 
   @media (max-width: 1020px) {
     .about-image {
       float: none;
-      margin: 0 auto 2em;
+      max-width: 100%; /* Image spans the full width on smaller screens */
+    }
+    .about-text{
+      min-width: 300px;
+      margin-left: 0em;
     }
   }
 </style>
