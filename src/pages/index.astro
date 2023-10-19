@@ -9,22 +9,16 @@ const permalink = Astro.site.href;
 <BaseLayout title={title} description={description} permalink={permalink}>
   <div class="home-container">
     <div class="home-copy">
-      <h1>Hey Taha</h1>
-      <h1>Welcome to my website</h1>
-      <p>I created this as an alternative to my linkdin so I can showcase my protfolio</p>
-      <p>keep revisiting my web, cause I am gonna be updating the text in different sectoin.</p>
+      <h1>Hey World</h1>
+      <h2>Welcome to my website</h2>
+      <p>I'm Kushal, I made this to show case my Work, thoughts, interests to the world.</p>
+      <p>Please Reach out. I wanna connect with awesome humans across the internet</p>
+      <p>Also I am making myself cold email people I admire, I hope this web would be a nice intro for that. As Brian Chesky said it, <br><i>"To build Trust, you have to remove strange from the stranger"</i></p>
+      <a href="mailto:kushalsokke@gmail.com?subject=Coffee!">Email</a>
+      <a href="https://twitter.com/KushalSM5">Twitter</a>
+      <a href="https://github.com/kiluazen">Github</a>
     </div>
 
-    <div class="hero-image-container">
-      <picture>
-        <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
-      </picture>
-      <p class="caption">
-        Illustration by
-        <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6" target="_blank" rel="noopener">Icons 8</a>
-        from
-        <a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
       </p>
     </div>
   </div>
@@ -43,16 +37,22 @@ const permalink = Astro.site.href;
   .home-copy {
     flex: 1;
     padding: 0em 10em;
+    text-align: center;
   }
 
   .home-copy h1 {
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 0.5em;
     line-height: 1.3;
   }
 
   .home-copy p {
     font-size: 1.4em;
+  }
+  .home-copy a {
+    padding-left: 1em;
+    font-size: 1.2em;
+
   }
 
   .hero-image-container {
@@ -79,11 +79,14 @@ const permalink = Astro.site.href;
 
   @media (max-width: 1200px) {
     p {
-      font-size: 1.2em;
+      font-size: 1em;
     }
 
     .hero-image {
       max-width: 400px;
+    }
+    .home-copy{
+      padding: 0em;
     }
   }
 
@@ -94,8 +97,10 @@ const permalink = Astro.site.href;
 
     .home-copy {
       flex: 0;
-      padding-bottom: 2em;
+      /* padding-bottom: 2em; */
+      padding:0em;
       text-align: center;
+
     }
   }
 </style>

@@ -10,27 +10,27 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 ---
 <BaseLayout title={title} description={description} permalink={permalink} current="projects">
     <div class="container">
-      <h1>Projects</h1>
-      {allPosts.map((post, index) => {
-        const href = `/projects/${post.file.split('/').pop().split('.').shift()}`;
-        return (
-          <div>
-            { index !== 0 && <hr /> }
-            <li>
-                <a href={href}>
-                    <img width={720} height={360} src={post.frontmatter.heroImage} alt="" />
-                    <h4 class="title">{post.frontmatter.title}</h4>
-                    <p>{post.frontmatter.description}</p>
-                    <p class="date">
-                        <span>{post.frontmatter.publishDate}</span>
-                    </p>
-                </a>
-            </li>
-          </div>
-        )
-      })}
+        <h1>Projects</h1>
+        <ul>
+            {allPosts.map((post, index) => {
+                const href = `/projects/${post.file.split('/').pop().split('.').shift()}`;
+                return (
+                    <li>
+                        {index !== 0 && <hr />}
+                        <a href={href}>
+                            <img width={720} height={360} src={post.frontmatter.heroImage} alt="" />
+                            <h4 class="title">{post.frontmatter.title}</h4>
+                            <p>{post.frontmatter.description}</p>
+                            <p class="date">
+                                <span>{post.frontmatter.publishDate}</span>
+                            </p>
+                        </a>
+                    </li>
+                )
+            })}
+        </ul>
     </div>
-  </BaseLayout>
+</BaseLayout>
 
 <style>
     main {
@@ -58,9 +58,6 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
     }
     ul li:first-child img {
         width: 100%;
-    }
-    ul li:first-child .title {
-        font-size: 2.369rem;
     }
     ul li img {
         margin-bottom: 0.5rem;
@@ -98,6 +95,11 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
         }
         ul li:first-child .title {
             font-size: 1.563em;
+        }
+    }
+    @media (min-width: 960px) {
+        ul li {
+            width: calc(50% - 1rem); /* Adjust for three columns */
         }
     }
 </style>
