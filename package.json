@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@astrojs/mdx": "^0.8.3",
+    "@astrojs/partytown": "^2.0.1",
     "@astrojs/svelte": "^1.0.0",
     "astro": "^1.0.3",
     "rehype-external-links": "^2.0.0"

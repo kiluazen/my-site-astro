@@ -1,5 +1,6 @@
 ---
 import ThemeToggleButton from './ThemeToggleButton.svelte';
+import GoogleAnalytics from './googleAnalytics.astro';
 const { current = '' } = Astro.props;
 ---
 
@@ -61,7 +62,18 @@ const { current = '' } = Astro.props;
   <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
   <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
   <a class={current === "projects" ? "selected" : ""} href='/projects'>projects</a>
-  <a class={current === "resume" ? "selected" : ""} href='/ycomb_resume.pdf'>resume</a>
+  <a class={current === "resume" ? "selected" : ""} href='/oct23.pdf' id = 'resume-clicked'>resume</a>
+  <GoogleAnalytics />
+  <script type = 'text/partytown'>
+     // JavaScript code to track the "Resume" link click event
+  document.getElementById("resume-clicked").addEventListener("click", function() {
+    // Send an event to Google Analytics when the "Resume" link is clicked
+    gtag('event', 'click', {
+      'event_category': 'Resume Link',
+      'event_label': 'Resume Link Clicked'
+    });
+  });
+  </script>
     <ThemeToggleButton client:load />
   </div>
 </nav>
