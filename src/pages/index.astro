@@ -9,14 +9,20 @@ const permalink = Astro.site.href;
 <BaseLayout title={title} description={description} permalink={permalink}>
   <div class="home-container">
     <div class="home-copy">
+      <img src="/assets/playground_pic.png">
       <h1>Hey World</h1>
-      <h2>Welcome to my website</h2>
       <p>I'm Kushal; I made this to show case my Work, thoughts, interests to the world.</p>
       <p>Please Reach out. I wanna connect with awesome humans across the internet</p>
       <p>Also, I am making myself cold email people I admire, This web would be a nice intro for that. <br>As Brian Chesky said it, <br><i>"To build Trust, you have to remove strange from the stranger"</i></p>
       <a href="mailto:kushalsokke@gmail.com?subject=Coffee!">Email</a>
       <a href="https://twitter.com/KushalSM5">Twitter</a>
       <a href="https://github.com/kiluazen">Github</a>
+      <br>
+      <br>
+      <span>Some Curated Lists</span>
+      <a href="/books.astro">Reading List</a>
+      <a href="/podcasts.astro">Podcasts</a>
+      <a href="essays.astro">Essays</a>
     </div>
 
       </p>
@@ -33,6 +39,9 @@ const permalink = Astro.site.href;
     margin: 3em 2em;
     min-height: 300px;
   }
+  .home-container{
+    background-image: '/assets/playground_pic.png';
+  }
 
   .home-copy {
     flex: 1;
@@ -48,6 +57,9 @@ const permalink = Astro.site.href;
 
   .home-copy p {
     font-size: 1.4em;
+  }
+  .home-copy span{
+    font-size: 1.4em
   }
   .home-copy a {
     padding-left: 1em;
@@ -87,6 +99,7 @@ const permalink = Astro.site.href;
     }
     .home-copy{
       padding: 0em;
+      margin: 0em;
     }
   }
 
@@ -100,7 +113,7 @@ const permalink = Astro.site.href;
       /* padding-bottom: 2em; */
       padding:0em;
       text-align: center;
-
+      margin:0em;
     }
   }
 </style>
