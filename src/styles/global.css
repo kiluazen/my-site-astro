@@ -89,7 +89,7 @@ li p {
 }
 
 a {
-  color: inherit;
+  color: green;
   transition: color linear 0.15s;
 }
 
