@@ -4,6 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Kushal';
 const description = 'my protoflio, blog website';
 const permalink = Astro.site.href;
+
+
+let allPosts = await Astro.glob('../data/auto-write/*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -28,6 +32,29 @@ const permalink = Astro.site.href;
       </p>
     </div>
   </div>
+
+
+
+  <div>
+    <h1>Shit Posting</h1>
+  {allPosts.map((post, index) => {
+    // const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+    return (
+      <div>
+        { index !== 0 && <hr /> }
+        <div class="post-item">
+          {/* <h2>
+            <a href={href}>{post.frontmatter.title}</a>
+          </h2> */}
+          <p>{post.frontmatter.description}</p>
+          <div class="post-item-footer">
+            <span class="post-item-date">— {post.frontmatter.publishDate}</span>
+          </div>
+        </div>
+      </div>
+    )
+  })}
+  </div>
 </BaseLayout>
 
 <style>
@@ -48,7 +75,17 @@ const permalink = Astro.site.href;
     padding: 0em 10em;
     text-align: center;
   }
+  .post-item-footer {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+  }
 
+  .post-item-date {
+    color: var(--text-secondary);
+    text-align: left;
+    text-transform: uppercase;
+    margin-right: 16px;
+  }
   .home-copy h1 {
     font-weight: 600;
     margin-bottom: 0.5em;
