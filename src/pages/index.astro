@@ -9,9 +9,9 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="home-container">
-    <div><img src="/assets/playground_pic.png"></div>
-    <div class="home-copy">
+  <div class="flex flex-col md:flex-row md:p-[4rem] justify-between">
+    <div class="flex-1"><img src="/assets/playground_pic.png"></div>
+    <div class="flex-1 items-start">
       <h1>Hey World</h1>
       <p>I'm Kushal; I made this to show case my Work, thoughts, interests to the world.</p>
       <p>Please Reach out. I wanna connect with awesome humans across the internet</p>
@@ -28,7 +28,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
     </div>
   </div>
 
-  <div>
+  <div class="px-[4rem] py-[2rem]">
     <h1>Shit Posting</h1>
   {allPosts.map((post, index) => {
     const { Content, frontmatter } = post
