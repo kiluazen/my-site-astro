@@ -5,49 +5,6 @@ const { current = '' } = Astro.props;
 ---
 
 <style>
-  nav {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    font-family: var(--font-family-sans);
-    font-weight: 700;
-    justify-content: center;
-   
-    text-transform: uppercase;
-  }
- 
-  a {
-    color: inherit;
-    text-decoration: none;
-    padding: 7px 5px;
-    display: block;
-    position: relative;
-    margin-left: 10px;
-    min-width: 40px;
-    text-align: center;
-  }
-
-  a:not(.selected) {
-    opacity: 0.7;
-  }
-
-  a::before {
-    content: '';
-    position: absolute;
-    transition: transform .3s ease;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--text-secondary);
-    transform: scaleX(0);
-  }
-
-  a:hover::before,
-  .selected::before {
-    transform: scaleX(1);
-  }
-
   .selected::before {
     background: var(--primary-color);
   }
@@ -57,14 +14,20 @@ const { current = '' } = Astro.props;
   }
 </style>
 
-<nav>
-  <a class={current === "" ? "selected" : ""} href='/'>home</a>
-  <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
-  <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
-  <!-- <a class={current === "projects" ? "selected" : ""} href='/projects'>projects</a> -->
-  <a class={current === "resume" ? "selected" : ""} href='/resume.pdf' id = 'resume-clicked'>resume</a>
+<nav >
+  <div class="flex justify-center items-center">
+  <div class="flex flex-row lg:gap-[15rem] pt-6">
+    <div class="flex flex-row gap-[4rem] text-[1.2rem]">
+      <a class="hover:text-[#DA95DE] hover:font-bold"  href='/'>Home</a>
+      <a class="hover:text-[#DA95DE] hover:font-bold" href='/about'>About</a>
+      <a class="hover:text-[#DA95DE] hover:font-bold" href='/blog'>Blog</a>
+    <!-- <a class={current === "projects" ? "selected" : ""} href='/projects'>projects</a> -->
+      <a class="hover:text-[#DA95DE] hover:font-bold" href='/resume.pdf' id = 'resume-clickeed'>Resume</a>
+    </div>
+  </div>
+  </div>
   <GoogleAnalytics />
-  <script type = 'text/partytown'>
+  <!-- <script type = 'text/partytown'>
      // JavaScript code to track the "Resume" link click event
   document.getElementById("resume-clicked").addEventListener("click", function() {
     // Send an event to Google Analytics when the "Resume" link is clicked
@@ -73,7 +36,7 @@ const { current = '' } = Astro.props;
       'event_label': 'Resume Link Clicked'
     });
   });
-  </script>
-    <ThemeToggleButton client:load />
+  </script> -->
+    <!-- <ThemeToggleButton client:load /> -->
   </div>
 </nav>

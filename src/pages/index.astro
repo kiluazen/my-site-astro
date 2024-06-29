@@ -9,42 +9,47 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="flex flex-col md:flex-row md:p-[4rem] justify-between">
-    <div class="flex-1"><img src="/assets/playground_pic.png"></div>
-    <div class="flex-1 items-start">
-      <h1>Hey World</h1>
-      <p>I'm Kushal; I made this to show case my Work, thoughts, interests to the world.</p>
-      <p>Please Reach out. I wanna connect with awesome humans across the internet</p>
-      <p>Also, I am making myself cold email people I admire, This web would be a nice intro for that. <br>As Brian Chesky said it, <br><i>"To build Trust, you have to remove strange from the stranger"</i></p>
-      <a href="mailto:kushalsokke@gmail.com?subject=Coffee!">Email</a>
-      <a href="https://twitter.com/KushalSM5">Twitter</a>
-      <a href="https://github.com/kiluazen">Github</a>
-      <br>
-      <br>
-      <span>Some Curated Lists</span>
-      <a href="/books">Reading List</a>
-      <a href="/podcasts">Podcasts</a>
-      <a href="essays">Essays</a>
+  <div class="flex flex-col md:flex-row lg:px-[15rem] md:py-[10rem] items-center">
+    <div class="flex-1 flex flex-row justify-around items-center"><img src="/assets/playground_pic.png"></div>
+    <div class="flex-1 items-start flex flex-col gap-4">
+      <div class="flex flex-col gap-4 text-[1.2rem]">
+        <h1 class="text-[#525051] font-[Sora] text-[2.5rem] not-italic font-bold leading-[120%]">I'm Kushal</h1>
+        <p>Here I show case my Work, thoughts, interests to the world.</p>
+        <p>Please Reach out. I wanna connect with awesome humans across the internet</p>
+        <p>Also, I am making myself cold email people I admire, This web would be a nice intro for that. As Brian Chesky said it, <br/>"To build Trust, you have to remove strange from the stranger"</p>
+      </div>
+      <div class="flex flex-row gap-4">
+        <a href="mailto:kushalsokke@gmail.com?subject=Coffee!">Email</a>
+        <a href="https://twitter.com/KushalSM5">Twitter</a>
+        <a href="https://github.com/kiluazen">Github</a>
+      </div>
+      <div class="flex flex-row gap-4">
+        <span>Curated Lists : </span>
+        <a href="/books">Reading List</a>
+        <a href="/podcasts">Podcasts</a>
+        <a href="essays">Essays</a>
+      </div>
     </div>
   </div>
 
-  <div class="px-[4rem] py-[2rem]">
-    <h1>Shit Posting</h1>
+  <div class="lg:px-[21rem] flex flex-col gap-[2rem]">
+    <h1 class="text-[#525051] font-[Sora] text-[2.5rem] not-italic font-bold leading-[120%]">Shit Posting</h1>
   {allPosts.map((post, index) => {
     const { Content, frontmatter } = post
     return (
       <div>
-        { index !== 0 && <hr /> }
-        <div class="post-item">
-            <h2>
-              {post.frontmatter.title}
-            </h2>
-            <p>{post.frontmatter.description}</p>
-            <div class="post-item-footer">
-              <span class="post-item-date">— {post.frontmatter.publishDate}</span>
+        { index !== 0 && <hr class="border-[#DA95DE] py-2"/> }
+        <div class="flex flex-col gap-2">
+            <div>
+              <h2 class="text-[#525051] font-[Sora] text-[1.5rem] not-italic font-bold leading-[120%]">
+                {post.frontmatter.title}
+              </h2>
+            </div>
+            <div class="text-[#525051] font-[Sora] non-italic font-bold">
+              <span class="">{post.frontmatter.publishDate}</span>
             </div>
 
-            <div class="auto-write-css"><Content /></div>
+            <div class="font-[Sora] text-[1.5rem]"><Content /></div>
           </div>
         </div>
       </div>
