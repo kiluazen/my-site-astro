@@ -1,5 +1,5 @@
 ---
-import '../styles/fonts.css'
+// import '../styles/fonts.css'
 import '../styles/global.css'
 
 export interface Props {
@@ -37,7 +37,7 @@ const socialUrl = Astro.site.href + 'assets/social.png'
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialUrl} />
 
-<!-- This is intentionally inlined to avoid FOUC -->
+<!-- This is intentionally inlined to avoid FOUC
 <script>
   const root = document.documentElement;
   const theme = localStorage.getItem('theme');
@@ -46,4 +46,4 @@ const socialUrl = Astro.site.href + 'assets/social.png'
   } else {
     root.classList.remove('theme-dark');
   }
-</script>
+</script> -->

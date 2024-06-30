@@ -4,20 +4,10 @@ import GoogleAnalytics from './googleAnalytics.astro';
 const { current = '' } = Astro.props;
 ---
 
-<style>
-  .selected::before {
-    background: var(--primary-color);
-  }
-
-  .theme-toggle-container {
-    width: 75px;
-  }
-</style>
-
 <nav >
-  <div class="flex justify-center items-center">
-  <div class="flex flex-row lg:gap-[15rem] pt-6">
-    <div class="flex flex-row gap-[4rem] text-[1.2rem]">
+  <div class="flex justify-end pr-6 md:pr-0 md:justify-center md:items-center">
+  <div class="flex flex-row md:pl-0 pt-6">
+    <div class="flex flex-row gap-6 md:gap-[4rem] text-[1.2rem]">
       <a class="hover:text-[#DA95DE] hover:font-bold"  href='/'>Home</a>
       <a class="hover:text-[#DA95DE] hover:font-bold" href='/about'>About</a>
       <a class="hover:text-[#DA95DE] hover:font-bold" href='/blog'>Blog</a>

@@ -24,13 +24,19 @@ He offered to fly him out to san fransisco and give him a full time job to work 
 
 Legendary Investor "Bill Gurley" when asked why he writes:
 
-	I learned that the broader my distribution was, the more power came back to me to your point.
-	
-	And then later, I think in venture capital, I learned that having a reputation as a thought leader was very helpful in closing the deal. And so, the reputational benefit access, we talked about being able to sit down with geniuses and talk to them, getting that access is partially tied to reputation.
-	
-	And so that's another benefit. Along the way, somewhere, I learned that I just think better when I write. You've heard this from others, but putting things down in a structured way and having to defend an argument. And it ties back into Bezos’ 6-page letter kind of thing like it just causes you to think better.
-	
-	There are some consequences, you write everything down, you're going to get some stuff wrong and then people 15 years later, say, see. So that comes with it. And then as I've gotten older, the giving back part is really, really rewarding. If someone comes up to you and says, hey, that really helped change my life, my direction. That's pretty powerful
+
+<br/>
+<i> I learned that the broader my distribution was, the more power came back to me to your point.
+
+And then later, I think in venture capital, I learned that having a reputation as a thought leader was very helpful in closing the deal. And so, the reputational benefit access, we talked about being able to sit down with geniuses and talk to them, getting that access is partially tied to reputation.
+
+And so that's another benefit. Along the way, somewhere, I learned that I just think better when I write. You've heard this from others, but putting things down in a structured way and having to defend an argument. And it ties back into Bezos’ 6-page letter kind of thing like it just causes you to think better.
+
+There are some consequences, you write everything down, you're going to get some stuff wrong and then people 15 years later, say, see. So that comes with it. And then as I've gotten older, the giving back part is really, really rewarding. If someone comes up to you and says, hey, that really helped change my life, my direction. That's pretty powerful
+</i>
+<br/>
+<br/>
+
 
 Sholto Douglas a researcher working on scaling in Google. 
 He explains how he know works on Gemini from being a Consultant.
@@ -40,7 +46,12 @@ He used to research and Blog on his own and was also active in forms discussing 
 
 Patrick Collison on what he looks for in someone [link](https://medium.com/swlh/patrick-collison-on-the-culture-of-stripe-and-how-to-hire-b0a14033e154)
 
-	I think the three that really stand out to me are this rigor and clarity of thought, this hunger, appetite, willfulness, determination, and this … warmth and desire to make people around them better off. Those are three that really stand out to me.
+
+<br/>
+<i>I think the three that really stand out to me are this rigor and clarity of thought, this hunger, appetite, willfulness, determination, and this … warmth and desire to make people around them better off. Those are three that really stand out to me.
+</i>
+<br/>
+
 
 We are entering the real world. 
 Where for the first time, The work we do will have real impact and consequences to the real world. This is the time to shine, do great work build great relationships that compound over time. 
