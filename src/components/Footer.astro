@@ -1,30 +1,13 @@
 <footer>
-  <span>
-    &copy; {new Date().getFullYear()} Kushal. <br>
-  </span>
-  <div>
-    <a href ='/books'>Reading List</a> 
-    <a href ='/podcasts'>Podcasts</a>
-    <a href ='/essays'>Essays</a>
+  <div class=" py-6 flex flex-row justify-center items-center gap-6">
+    <span>
+      &copy; {new Date().getFullYear()} Kushal. <br>
+    </span>
+    <div class="flex flex-row gap-4">
+      <a href ='/books' class="text-[#DA95DE] hover:font-bold">Reading List</a> 
+      <a href ='/podcasts' class="text-[#DA95DE] hover:font-bold">Podcasts</a>
+      <a href ='/essays' class="text-[#DA95DE] hover:font-bold">Essays</a>
+    </div>
   </div>
 </footer>
 
-<style>
-  footer {
-    display: flex;
-    justify-content: center;
-    color: var(--text-secondary);
-    font-size: .8em;
-    margin: 1em auto;
-    max-width: 1400px;
-    padding: 2em 2em;
-    text-align: center;
-    width: 100%;
-  }
-  div{
-    margin-left: 1em;
-  }
-  a {
-    padding-left: 0.5em;
-  }
-</style>
