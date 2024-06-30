@@ -7,19 +7,19 @@ const permalink = `${Astro.site.href}about`;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="about">
-  <div class="flex flex-col md:gap-[4rem] py-[3rem] lg:px-[21rem] lg:pt-[10rem]">
+  <div class="flex flex-col py-[3rem] md:gap-[2rem] md:px-[4rem] md:pt-[4rem] lg:px-[14rem] lg:pt-[10rem]">
     <div class="flex flex-col md:flex-row-reverse justify-center items-center gap-4 md:gap-[4rem]">
-      <div class="flex-1 max-w-[400px] min-w-[300px]">
+      <div class="max-w-[400px] min-w-[300px]">
         <img class="rounded-[18px]" src="/assets/color-2.jpg" alt="My Picture">
       </div>
-      <div class="flex-1 flex flex-col gap-[1rem] text-[1.2rem] pl-4 pr-10 md:pl-0 md:pr-0">
+      <div class="flex flex-col gap-[1rem] text-[1.2rem] pl-4 pr-10 md:pl-0 md:pr-0">
         <p>Aerospace Grad from IIT Bombay 24. Currently In Banglore
         </p>
         <h1 class="text-[#525051] font-[Sora] text-[1.5rem] not-italic font-bold leading-[120%]" >Interests</h1>
         <p>How far a group of driven people can go. The wealth creation that startups enable. Putting myself in a place that leads to compound effects.</p>
         <p>I love reading Biographies, Instances where a small group of great people do incredible things.(Bell Labs, Xerox, Ycomb)</p>
         <p>I am a deep learning practitioner along with my Aerospace Course work. If you wanna know why I decided to work on software AI instead of moving forward in Aerospace <a href="/blog/swtich-to-software">read..</a></p>
-        <div class="flex flex-col md:flex-row gap-2">
+        <div class="flex flex-col lg:flex-row gap-2">
           <p>Some curated lists, I revist every year: </p> 
           <div class="flex flex-row gap-6 md:gap-2">
             <a href="/books" class="underline text-[#9B9692] hover:font-bold hover:text-[#DA95DE]">Books</a>
@@ -30,7 +30,7 @@ const permalink = `${Astro.site.href}about`;
       </div>
     </div>
     <!-- <hr class="border-[#DA95DE] pt-[4rem]" /> -->
-    <div class="flex flex-col pl-4 md:pl-0 md:flex-row justify-between text-[1.2rem]">
+    <div class="flex flex-col pl-4 md:pl-0 md:flex-row md:gap-[2rem] justify-between text-[1.2rem]">
       <div class="flex flex-col gap-[1rem]">
         <p>I made this website to serve as a gateway to meet awesome people <br/> to remove the strange from the stranger (As Brian Chesky says it.)</p>
         <p>I'd be very happy to hear from you, Let's get some <span class="font-bold">Coffee</span></p>
