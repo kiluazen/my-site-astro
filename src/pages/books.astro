@@ -6,29 +6,27 @@ const description = 'My Reading List';
 const permalink = `${Astro.site.href}books`;
 ---
 <BaseLayout title={title} description={description} permalink={permalink} current="books">
-    <div class="container lists">
-      <h2>Current Readings</h2>
-      <ul>
-          <li>The Selfish Gene</li>
-          <li>Bombay The Cities Within</li>
-          
-      </ul>
-      <h2>Read</h2>
-      <ul>
-        <li>Atlas Shrugged</li>
-        <p>This shattered my world, transforming perspectives</p>
-        <li> Writers and Lovers</li>
-        <li> Another Country</li>
-        <li> The picture of Dorian Gray</li>
-        <li> Normal People</li>
-        
+    <div class="flex flex-col gap-2 pl-6 pr-10 py-[3rem] lg:px-[21rem] lg:py-[6rem] md:text-[1.2rem]">
+      <h2 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2.5rem] not-italic font-bold leading-[120%]">Books</h2>
+      <div class="flex flex-row gap-6"> 
+        <div><span class="text-[green]">best: </span>green </div> 
+        <div> <span class="text-[blue]">good: </span>blue </div>
+      </div>
+      <div>The Selfish Gene</div>
+      <div>Bombay The Cities Within</div>
+  
+      <div class="text-[green]">Atlas Shrugged</div>
+      <div> Writers and Lovers</div>
+      <div> Another Country</div>
+      <div class="text-[green]"> The picture of Dorian Gray</div>
+      <div class="text-[green]"> Normal People</div>
+      
 
-        <li>Steal Like an Artist</li>
-        <li>The innovators</li>
-        <li>Steve Jobs bio</li>
-        <li>Naked Statistics</li>
-      </ul>
-     
+      <div>Steal Like an Artist</div>
+      <div class="text-[green]">The innovators</div>
+      <div>Steve Jobs bio</div>
+      <div>Naked Statistics</div>
+    
     </div>
    
   </BaseLayout>

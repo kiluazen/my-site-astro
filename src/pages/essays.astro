@@ -6,13 +6,18 @@ const description = 'Great Essays';
 const permalink = `${Astro.site.href}essays`;
 ---
 <BaseLayout title={title} description={description} permalink={permalink} current="essays">
-    <div class="container lists">
-      <h2>Essays</h2>
-      <p>Listing them so I revist</p>
-      <ul>
-        <li>SuperLinear Returns (<a href="https://www.paulgraham.com/superlinear.html">read</a>)</li>
-        <li>General methods that leverage computation are gonna win in the long term (<a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">read</a>)</li>
-      </ul>
+    <div class="flex flex-col gap-2 pl-4 pr-10 py-[3rem] lg:px-[21rem] lg:py-[6rem] md:text-[1.2rem]">
+      <h2 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2.5rem] not-italic font-bold leading-[120%]">Essays</h2>
+      <div class="flex flex-col gap-4 pt-4">
+        <div class="flex flex-row gap-2">
+          <p class="w-[25rem]">SuperLinear Returns</p>
+          <a class="text-[#DA95DE] hover:font-bold" href="https://www.paulgraham.com/superlinear.html">read</a>
+        </div>
+        <div class="flex flex-row gap-2">
+          <p class="w-[25rem]">General methods that leverage computation are gonna win in the long term</p>
+          <a class="text-[#DA95DE] hover:font-bold" href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">  read</a>
+        </div>
+      </div>
     </div>
    
   </BaseLayout>
