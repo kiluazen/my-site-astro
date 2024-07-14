@@ -1,24 +1,44 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Bio from '../../components/Bio.astro';
-import getPostData from '../../utils/getPostData';
+import { parseHTML } from '../../utils/parseHTML';
+import { promises as fs } from 'fs';
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../data/blog-posts/*.md");
-  return posts.map(p => ({
-    params: { slug: p.file.split('/').pop().split('.').shift() },
-    props: { post: p },
-  }));
+  const files = await fs.readdir('./src/data/blog-posts');
+  return files
+    .filter(file => file.endsWith('.html') || file.endsWith('.astro'))
+    .map(file => {
+      const slug = file.replace(/\.(html|astro)$/, '');
+      return {
+        params: { slug },
+        props: { filename: file }
+      };
+    });
 }
 
-const { Content, frontmatter } = Astro.props.post;
+const { filename } = Astro.props;
+const { slug } = Astro.params;
+
+const filePath = `./src/data/blog-posts/${filename}`;
+
+let Content, frontmatter;
+
+if (filename.endsWith('.astro')) {
+  const postModule = await import(`../../data/blog-posts/${filename}`);
+  Content = postModule.default;
+  frontmatter = postModule.frontmatter;
+} else {
+  const content = await fs.readFile(filePath, 'utf8');
+  frontmatter = parseHTML(content);
+}
+
 const { title, description, publishDate } = frontmatter;
-const { slug, readingTime } = getPostData(Astro.props.post);
-const permalink = "${Astro.site.href}blog/${slug}";
+const permalink = `${Astro.site.href}blog/${slug}`;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
-  <div class=" flex flex-col md:pt-[4rem] px-6 py-[2rem] md:px-[4rem] lg:px-[18rem] gap-4">  
+  <div class="flex flex-col md:pt-[4rem] px-6 py-[2rem] md:px-[4rem] lg:px-[18rem] gap-4">  
     <div class="flex flex-col justify-center items-center">  
       <h1 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2rem] not-italic font-bold leading-[120%]">{title}</h1>
       <p class="text-[#525051] font-[Sora] md:text-[1.2rem] non-italic font-bold">{publishDate}</p>
@@ -26,11 +46,10 @@ const permalink = "${Astro.site.href}blog/${slug}";
     <hr class="border-[#DA95DE] py-2"/>
     <div class="">
       <article class="text-[1rem] md:text-[1.2rem]">
-        <Content />
+        {filename.endsWith('.astro') ? <Content /> : <Fragment set:html={frontmatter.content} />}
       </article>
     </div>
     <hr class="border-[#DA95DE] py-2"/>
     <Bio />
   </div>
 </BaseLayout>
-

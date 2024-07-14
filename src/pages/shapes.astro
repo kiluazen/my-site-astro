@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Contemplative Objects';
+const description = 'The objects and shapes that you can use as your gateway for contemplation and focus';
+const permalink = `${Astro.site.href}essays`;
+---
+<BaseLayout title={title} description={description} permalink={permalink} current="Contemplative Objects">
+    <div class="flex flex-col gap-2 pl-4 pr-10 py-[3rem] lg:px-[21rem] lg:py-[6rem] md:text-[1.2rem]">
+      <h2 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2.5rem] not-italic font-bold leading-[120%]">Contemplative Objects</h2>
+      <div class="flex flex-row gap-4 pt-4">
+        <div class="flex flex-col justify-center items-center">
+            <img src="/assets/blog/calabi-yau.webp" class="rounded-[10px] max-w-[400px] min-w-[300px] max-h-[150px] min-h-[100px]" />
+            <div>Calabi-Yau Manifolds 3D printed</div>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <img src="/assets/blog/image.png" class="rounded-[10px] max-w-[400px] min-w-[300px] max-h-[150px] min-h-[100px]"/>
+            <div>Interlocking Helical Cones</div>
+        </div>
+      </div>
+    </div>
+   
+</BaseLayout>

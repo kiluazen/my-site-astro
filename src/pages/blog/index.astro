@@ -1,12 +1,49 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { parseHTML } from '../../utils/parseHTML';
+import { promises as fs } from 'fs';
 
 const title = 'Blog';
 const description = 'Latest articles.';
 const permalink = `${Astro.site.href}blog`;
 
-let allPosts = await Astro.glob('../../data/blog-posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+// Get the directory of the current file
+const blogPostsDir = './src/data/blog-posts';
+
+// Log the directory path for debugging
+console.log('Blog posts directory:', blogPostsDir);
+
+let allPosts = [];
+
+try {
+  // Get all HTML and Astro files in the blog posts directory
+  const files = await fs.readdir(blogPostsDir);
+  const blogFiles = files.filter(file => file.endsWith('.html') || file.endsWith('.astro'));
+
+  // Read and parse each file
+  allPosts = await Promise.all(blogFiles.map(async (file) => {
+    const filePath = `${blogPostsDir}/${file}`;
+    let metadata;
+    
+    if (file.endsWith('.astro')) {
+      const postModule = await import(`../../data/blog-posts/${file}`);
+      console.log(file)
+      metadata = postModule.frontmatter;
+    } else {
+      const content = await fs.readFile(filePath, 'utf8');
+      metadata = parseHTML(content);
+    }
+    
+    // Store the filename without extension as the slug
+    const slug = file.replace(/\.(html|astro)$/, '');
+    return { ...metadata, slug };
+  }));
+
+  // Sort posts by publish date
+  allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+} catch (error) {
+  console.error('Error reading blog posts:', error);
+}
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current="blog">
@@ -14,17 +51,17 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
     <h1 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2.5rem] not-italic font-bold leading-[120%]">Blog</h1>
     <div class="flex flex-col gap-[2rem]">
       {allPosts.map((post, index) => {
-        const href = `/blog/${post.file.split('/').pop().split('.').shift()}`;
+        const href = `/blog/${post.slug}`;
         return (
           <div>
             { index !== 0 && <hr class="border-[#DA95DE] py-2"/> }
             <div class="flex flex-col gap-2 pr-10 md:pr-0">
               <h2 class="text-[#525051] font-[Sora] text-[1.5rem] not-italic font-bold leading-[120%]">
-                <a href={href}>{post.frontmatter.title}</a>
+                <a href={href}>{post.title}</a>
               </h2>
-              <p class="text-[#525051] text-[1.2rem] font-bold]">{post.frontmatter.description}</p>
+              <p class="text-[#525051] text-[1.2rem] font-bold]">{post.description}</p>
               <div class="text-[#525051] font-[Sora] non-italic font-bold">
-                <span>{post.frontmatter.publishDate}</span>
+                <span>{post.publishDate}</span>
               </div>
             </div>
           </div>
@@ -33,22 +70,3 @@ allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf()
     </div>
   </div>
 </BaseLayout>
-
-<style>
-  h2,
-  .post-item-footer {
-    font-family: var(--font-family-sans);
-    font-weight: 700;
-  }
-
-  .post-item-date {
-    color: var(--text-secondary);
-    text-align: left;
-    text-transform: uppercase;
-    margin-right: 16px;
-  }
-
-  hr {
-    margin: 60px auto;
-  }
-</style>
