@@ -25,7 +25,9 @@ const filePath = `./src/data/blog-posts/${filename}`;
 let Content, frontmatter;
 
 if (filename.endsWith('.astro')) {
-  const postModule = await import(`../../data/blog-posts/${filename}`);
+  const slug = filename.replace('.astro', '');
+  const postModule = await import(`../../data/blog-posts/${slug}.astro`);
+  // const postModule = await import(`../../data/blog-posts/${filename}`);
   Content = postModule.default;
   frontmatter = postModule.frontmatter;
 } else {

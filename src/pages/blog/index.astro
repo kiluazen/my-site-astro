@@ -26,7 +26,8 @@ try {
     let metadata;
     
     if (file.endsWith('.astro')) {
-      const postModule = await import(`../../data/blog-posts/${file}`);
+      const slug = file.replace('.astro', '');
+      const postModule = await import(`../../data/blog-posts/${slug}.astro`);
       console.log(file)
       metadata = postModule.frontmatter;
     } else {
