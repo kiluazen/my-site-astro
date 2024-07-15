@@ -5,19 +5,84 @@ const title = 'Contemplative Objects';
 const description = 'The objects and shapes that you can use as your gateway for contemplation and focus';
 const permalink = `${Astro.site.href}essays`;
 ---
+
 <BaseLayout title={title} description={description} permalink={permalink} current="Contemplative Objects">
-    <div class="flex flex-col gap-2 pl-4 pr-10 py-[3rem] lg:px-[21rem] lg:py-[6rem] md:text-[1.2rem]">
-      <h2 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2.5rem] not-italic font-bold leading-[120%]">Contemplative Objects</h2>
-      <div class="flex flex-row gap-4 pt-4">
-        <div class="flex flex-col justify-center items-center">
-            <img src="/assets/blog/calabi-yau.webp" class="rounded-[10px] max-w-[400px] min-w-[300px] max-h-[150px] min-h-[100px]" />
-            <div>Calabi-Yau Manifolds 3D printed</div>
+    <div class="flex flex-col gap-4 pl-4 pr-10 py-[3rem] lg:px-[21rem] lg:py-[6rem] md:text-[1.2rem]">
+        <h2 class="text-[#525051] font-[Sora] text-[1.8rem] md:text-[2.5rem] not-italic font-bold leading-[120%]">Contemplative Objects</h2>
+
+        <p>I'm very glad you are here</p>
+        <p>I wanted these for myself so I designed the CAD models for these objects. <br/> I am not sure how many others want these, so please click the button below if you're interested and I'll get these geometrically marvelous objects to you.</p>
+
+        <button id="buyButton" class="self-start border-[black] px-4 py-2 bg-[#845EC2] hover:bg-[#DA95DE] text-[#DFD7CF] hover:text-[black] hover:font-bold rounded">I want to buy</button>
+
+        <div class="flex flex-col md:flex-row gap-8 pt-8">
+            <div class="flex flex-col justify-center items-center">
+                <img src="/assets/blog/calabi-yau.webp" alt="Calabi-Yau Manifolds" class="rounded-[10px] max-w-[400px] min-w-[200px]" />
+                <p class="mt-2 text-center">Calabi-Yau Manifolds 3D printed</p>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+                <img src="/assets/blog/helix_2.jpeg" alt="Interlocking Helical Cones" class="rounded-[10px] max-w-[400px] min-w-[200px]"/>
+                <p class="mt-2 text-center">Interlocking Helical Cones</p>
+            </div>
         </div>
-        <div class="flex flex-col justify-center items-center">
-            <img src="/assets/blog/image.png" class="rounded-[10px] max-w-[400px] min-w-[300px] max-h-[150px] min-h-[100px]"/>
-            <div>Interlocking Helical Cones</div>
-        </div>
-      </div>
     </div>
-   
+
+    <!-- Modal -->
+    <div id="interestModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Express Your Interest</h3>
+                <div class="mt-4 px-7 py-3">
+                    <form id="interestForm" action="https://formspree.io/f/xvgpgqdo" method="POST">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required class="mt-1 block w-full rounded-md border-black focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        <button type="submit" class=" bg-[#845EC2] hover:bg-[#DA95DE] text-[#DFD7CF] hover:text-[black] hover:font-bold  rounded px-4 py-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      document.getElementById('buyButton')?.addEventListener('click', () => {
+          document.getElementById('interestModal')?.classList.remove('hidden');
+      });
+
+      document.getElementById('interestForm')?.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const form = e.target as HTMLFormElement;
+          const formData = new FormData(form);
+
+          try {
+              const response = await fetch(form.action, {
+                  method: form.method,
+                  body: formData,
+                  headers: {
+                      'Accept': 'application/json'
+                  }
+              });
+
+              if (response.ok) {
+                  alert('Thank you for your interest! We will contact you soon.');
+                  document.getElementById('interestModal')?.classList.add('hidden');
+                  form.reset();
+              } else {
+                  throw new Error('Form submission failed');
+              }
+          } catch (error) {
+              alert('There was an error. Please try again.');
+              console.error('Error:', error);
+          }
+      });
+
+      // Close modal when clicking outside
+      window.onclick = function(event) {
+          const modal = document.getElementById('interestModal');
+          if (event.target === modal) {
+              modal?.classList.add('hidden');
+          }
+      }
+  </script>
+
 </BaseLayout>
+
+   
